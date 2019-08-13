@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="/Users/adrianogalindo/Dropbox/Eclipse/grasset/420-PA4-AG-LAB02 (V2 - Solution)"/>
+	</list>
+	<section name="ExternalProjectImportWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="true" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="/Users/galindo/Dropbox/Eclipse/420-PA4-AG-LAB05 (Selenium)"/>
+			<item value="/Users/adrianogalindo/Downloads/420-PA4-AG-LAB03-STATIC_ANALYSIS"/>
+			<item value="/Users/adrianogalindo/Dropbox/GRASSET/CONTRÔLE DE QUALITÉ I/TP1/420-PA4-AG-TP01"/>
+			<item value="A:\Dropbox\GRASSET\CONTRÔLE DE QUALITÉ I\TP1\420-PA4-AG-TP01"/>
+			<item value="/Users/adrianogalindo/Dropbox/GRASSET/CONTRÔLE DE QUALITÉ I/420-PA4-AG-LAB01.factorielle"/>
+			<item value="/Users/adrianogalindo/Dropbox/GRASSET/CONTRÔLE DE QUALITÉ I/420-PA4-AG-LAB02_V2_-_Solut"/>
+			<item value="/Users/adrianogalindo/Dropbox/GRASSET/CONTRÔLE DE QUALITÉ I/420-PA4-AG-LAB02"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item value="664" key="DIALOG_X_ORIGIN"/>
+		<item value="361" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

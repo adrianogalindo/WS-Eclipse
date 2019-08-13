@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		int valor, anos, meses, dias, resto;
+
+		valor = sc.nextInt();
+
+		anos = valor / 365;
+		System.out.println(anos + "ano(s)");
+		resto = valor % 365;
+
+		meses = resto / 30;
+		System.out.println(meses + "mes(es)");
+		resto = meses % 30;
+
+		dias = resto;
+		System.out.println(dias + "dia(s)");
+
+		sc.close();
+
+	}
+
+}

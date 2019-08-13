@@ -1,0 +1,23 @@
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		sc.useLocale(Locale.ENGLISH);
+		Locale.setDefault(new Locale("en", "US"));
+
+		int nota100, nota50, nota20, nota5, nota2, nota1, dinheiro, resto100, resto50, resto20, resto10, resto5, resto2;
+		
+		dinheiro = sc.nextInt();
+		
+		nota100 = dinheiro / 100;
+		resto1
+		nota50 = nota100 % 50
+		
+		
+		sc.close();
+
+	}
+
+}

@@ -1,0 +1,14 @@
+package fundamentos;
+
+public class Comentario {
+
+	public static void main(String[] args) {
+		
+		System.out.println("Primeiro");
+		
+		//Cuidados com os comentários óbvios
+		System.out.println("Programa");
+		
+	}
+	
+}

@@ -1,0 +1,144 @@
+package entities;
+
+
+import exception.LCInvalidAccessException;
+
+public class LinkedChaine<T> {
+
+	protected Noeud<T> tete;
+	protected Noeud<T> fin;
+
+	// Liste vide
+	public LinkedChaine() {
+		this.fin = this.tete = null;
+	}
+
+	public LinkedChaine(T v) {
+
+		this.tete = this.fin = new Noeud<T>(v);
+
+	}
+
+	public LinkedChaine(final T[] v) {
+
+		if (v.length == 0) {
+			throw new LCInvalidAccessException(3);
+		} else {
+			Noeud<T> current = new Noeud<T>(v[0]);
+			this.tete = this.fin = current;
+			for (int i = 1; i < v.length; i++) {
+				current.suivant = new Noeud<T>(v[i]);
+				current.anterieur = this.fin;
+				current = current.suivant;
+				this.fin = current;
+			}
+		}
+	}
+
+	public void append(T e) {
+
+		if (this.isEmpty()) {
+			this.tete = this.fin = new Noeud<T>(e);
+		} else {
+			this.fin.suivant = new Noeud<T>(e);
+			Noeud<T> aux = this.fin.suivant;
+			aux.anterieur = this.fin;
+			this.fin = aux;
+		}
+
+	}
+
+	public void concat(LinkedChaine<T> lc) {
+
+		LinkedChaine<T> w = this;
+		if (lc.isEmpty()) {
+			throw new LCInvalidAccessException(2);
+		}
+		if (lc == this) {
+			LinkedChaine<T> newList = lc.copy();
+			w.fin.suivant = newList.tete;
+			newList.tete.anterieur = w.fin;
+			w.fin = newList.fin;
+		} else {
+			w.fin.suivant = lc.tete;
+			lc.tete.anterieur = w.fin;
+			w.fin = lc.fin;
+		}
+	}
+
+	public LinkedChaine<T> copy() {
+
+		LinkedChaine<T> newList = new LinkedChaine<T>();
+
+		if (!this.isEmpty()) {
+			LinkedChaine<T> old = this;
+			old.fin = old.tete;
+			newList.tete = newList.fin = new Noeud<T>(old.fin.data);
+			for (int i = 1; i < this.size(); i++) {
+				newList.fin.suivant = new Noeud<T>(old.fin.suivant.data);
+				newList.fin = newList.fin.suivant;
+				old.fin = old.fin.suivant;
+			}
+			
+		}
+		return newList;
+
+	}
+
+	public T end() throws LCInvalidAccessException {
+
+		if (this.fin == null) {
+			throw new LCInvalidAccessException(2);
+		}
+		Noeud<T> lastData = this.tete;
+		while (lastData.suivant != null) {
+			lastData = lastData.suivant;
+		}
+		return lastData.data;
+	}
+
+	public LinkedChaine<T> tail() {
+		this.tete = this.tete.suivant;
+		return this;
+	}
+
+	public T head() throws LCInvalidAccessException {
+		if (this.tete.data == null) {
+			throw new LCInvalidAccessException(1);
+		}
+		return this.tete.data;
+	}
+
+	public boolean isEmpty() {
+		return (this.tete == null) || (this.fin == null);
+	}
+
+		public LinkedChainedIterator<T> linkedChainedIterator() {
+			return new LinkedChainedIterator<T>(this);
+		}
+
+	public int size() {
+
+		int taille = 0;
+		Noeud<T> current = this.tete;
+		while (current != null) {
+			taille++;
+			current = current.suivant;
+		}
+		return taille;
+
+	}
+
+	public Object[] toArray() throws LCInvalidAccessException {
+
+		Object[] arrList = new Object[this.size()];
+		Noeud<T> current = this.tete;
+
+		for (int i = 0; i < this.size(); i++) {
+			arrList[i] = current.data;
+			current = current.suivant;
+		}
+		return arrList;
+
+	}
+}

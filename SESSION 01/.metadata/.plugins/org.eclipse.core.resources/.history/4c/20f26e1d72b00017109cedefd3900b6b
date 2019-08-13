@@ -1,0 +1,40 @@
+package entradadedados;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Entradadedados {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+
+		String s;
+		// next serve para ler texto
+		int a, b;
+		double x, y;
+		char ch;
+
+		a = sc.nextInt();
+		b = sc.nextInt();
+		x = sc.nextDouble();
+		sc.useLocale(Locale.ENGLISH);
+		y = sc.nextDouble();
+		s = sc.next();
+		ch = sc.next().charAt(0);
+		// chartAt pega o caractere, nesse caso, pegará o primeiro caractere.
+
+		System.out.println("DADOS DIGITADOS");
+		System.out.println(a);
+		System.out.println(b);
+		System.out.println(x);
+		System.out.println(y);
+		System.out.println(s);
+		System.out.println(ch);
+
+	
+		sc.close();
+
+	}
+
+}

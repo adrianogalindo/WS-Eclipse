@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<BugCollection version="3.0.1-dev-20150306-5afe4d1" sequence="1" timestamp="1537908136372" analysisTimestamp="1537908135855" release="">
+  <Project projectName="420-PA4-AG-TP01">
+    <Jar>/Users/adrianogalindo/Dropbox/Eclipse/grasset/420-PA4-AG-TP01/build/classes</Jar>
+    <AuxClasspathEntry>/Users/adrianogalindo/Dropbox/Eclipse/grasset/420-PA4-AG-TP01/build/classes</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/Eclipse.app/Contents/Eclipse/plugins/org.junit_4.12.0.v201504281640/junit.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Applications/Eclipse.app/Contents/Eclipse/plugins/org.hamcrest.core_1.3.0.v20180420-1519.jar</AuxClasspathEntry>
+    <AuxClasspathEntry>/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/jre/lib/rt.jar</AuxClasspathEntry>
+    <SrcDir>/Users/adrianogalindo/Dropbox/Eclipse/grasset/420-PA4-AG-TP01/src/test/java</SrcDir>
+    <SrcDir>/Users/adrianogalindo/Dropbox/Eclipse/grasset/420-PA4-AG-TP01/src/main/java</SrcDir>
+    <Cloud id="edu.umd.cs.findbugs.cloud.doNothingCloud" online="false"></Cloud>
+  </Project>
+  <Errors errors="0" missingClasses="0"></Errors>
+  <FindBugsSummary timestamp="Tue, 25 Sep 2018 16:36:50 -0400" total_classes="9" referenced_classes="23" total_bugs="0" total_size="111" num_packages="1" java_version="1.8.0_181" vm_version="25.181-b13" cpu_seconds="1.68" clock_seconds="0.52" peak_mbytes="438.02" alloc_mbytes="1024.00" gc_seconds="0.02">
+    <PackageStats package="ca.qc.grasset._420_pa4_ag.tp01" total_bugs="0" total_types="9" total_size="111">
+      <ClassStats class="ca.qc.grasset._420_pa4_ag.tp01.UtilitaireTableau" sourceFile="UtilitaireTableau.java" interface="false" size="26" bugs="0"/>
+      <ClassStats class="ca.qc.grasset._420_pa4_ag.tp01.UtilitaireTableauTest_Test1" sourceFile="UtilitaireTableauTest_Test1.java" interface="false" size="13" bugs="0"/>
+      <ClassStats class="ca.qc.grasset._420_pa4_ag.tp01.UtilitaireTableauTest_Test1_Null" sourceFile="UtilitaireTableauTest_Test1_Null.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="ca.qc.grasset._420_pa4_ag.tp01.UtilitaireTableauTest_Test2" sourceFile="UtilitaireTableauTest_Test2.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="ca.qc.grasset._420_pa4_ag.tp01.UtilitaireTableauTest_Test2_Null" sourceFile="UtilitaireTableauTest_Test2_Null.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="ca.qc.grasset._420_pa4_ag.tp01.UtilitaireTableauTest_Test3" sourceFile="UtilitaireTableauTest_Test3.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="ca.qc.grasset._420_pa4_ag.tp01.UtilitaireTableauTest_Test3_Null" sourceFile="UtilitaireTableauTest_Test3_Null.java" interface="false" size="9" bugs="0"/>
+      <ClassStats class="ca.qc.grasset._420_pa4_ag.tp01.UtilitaireTableauTest_Test4" sourceFile="UtilitaireTableauTest_Test4.java" interface="false" size="12" bugs="0"/>
+      <ClassStats class="ca.qc.grasset._420_pa4_ag.tp01.UtilitaireTableauTest_Test4_Null" sourceFile="UtilitaireTableauTest_Test4_Null.java" interface="false" size="9" bugs="0"/>
+    </PackageStats>
+    <FindBugsProfile>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="179" invocations="351" avgMicrosecondsPerInvocation="510" maxMicrosecondsPerInvocation="24716" standardDeviationMircosecondsPerInvocation="1520"/>
+      <ClassProfile name="de.tobject.findbugs.builder.FindBugs2Eclipse" totalMilliseconds="90" invocations="2" avgMicrosecondsPerInvocation="45332" maxMicrosecondsPerInvocation="75589" standardDeviationMircosecondsPerInvocation="30257"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="31" invocations="351" avgMicrosecondsPerInvocation="90" maxMicrosecondsPerInvocation="15018" standardDeviationMircosecondsPerInvocation="800"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="19" invocations="23" avgMicrosecondsPerInvocation="843" maxMicrosecondsPerInvocation="5229" standardDeviationMircosecondsPerInvocation="1377"/>
+      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="16" invocations="83" avgMicrosecondsPerInvocation="195" maxMicrosecondsPerInvocation="1576" standardDeviationMircosecondsPerInvocation="232"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="11" invocations="23" avgMicrosecondsPerInvocation="494" maxMicrosecondsPerInvocation="3404" standardDeviationMircosecondsPerInvocation="762"/>
+      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="11" invocations="318" avgMicrosecondsPerInvocation="35" maxMicrosecondsPerInvocation="456" standardDeviationMircosecondsPerInvocation="56"/>
+    </FindBugsProfile>
+  </FindBugsSummary>
+  <ClassFeatures></ClassFeatures>
+  <History>
+    <AppVersion sequence="0" timestamp="1537908136372" release="" codeSize="0" numClasses="0"/>
+  </History>
+</BugCollection>

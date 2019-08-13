@@ -1,0 +1,11 @@
+package entradadedados;
+
+public class Entradadedados {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		
+	}
+
+}

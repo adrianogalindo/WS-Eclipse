@@ -1,0 +1,21 @@
+package pack;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Cours {
+	
+	private int idC;
+	private String titre;
+	private int unite;
+	private List<Eleve> eleves = new ArrayList<Eleve>();
+	
+	public Cours(int idC, String titre, int unite) {
+		super();
+		this.idC = idC;
+		this.titre = titre;
+		this.unite = unite;
+	}
+	
+
+}

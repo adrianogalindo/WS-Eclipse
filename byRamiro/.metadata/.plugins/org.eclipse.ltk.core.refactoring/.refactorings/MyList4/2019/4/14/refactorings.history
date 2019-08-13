@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;myCompositeList.MyList&apos; to &apos;MyCompositeList&apos;&#x0A;- Original project: &apos;MyList4&apos;&#x0A;- Original element: &apos;myCompositeList.MyList&apos;&#x0A;- Renamed element: &apos;myCompositeList.MyCompositeList&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;MyList&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;myCompositeList{MyList.java[MyList" matchStrategy="1" name="MyCompositeList" qualified="false" references="true" similarDeclarations="false" stamp="1554392947223" textual="false" version="1.0"/>
+</session>

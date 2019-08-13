@@ -1,0 +1,422 @@
+package entities;
+
+/**
+ * @author <a href="mailto:bridee@gmail.com">Erko Bridee de Almeida Cabrera </a>
+ */
+
+import javax.swing.JOptionPane;
+
+// estrutura de dados de alocação de uma unidade de dado na lista
+class Caixa {
+
+    // membros com acesso de pacote; List pode acessa-los diretamente
+    protected Object data;
+    protected Caixa nextNode; // ponteiro para o próximo elemento
+    protected Caixa antNode; // ponteiro para o elemento anterior
+
+    // construtor para criar um ListNode que faz referencia a um objeto
+    public Caixa( Object object ) {
+        this( null, object, null);
+    }
+
+    /*
+     * Construtor para criar um ListNode que faz referência a um objeto e para o
+     * próximo ListNode em List
+     */
+    public Caixa( Caixa ant, Object object, Caixa prox) {
+        this.antNode = ant; // aponta para o elemento anterior
+        this.data = object; // recebe o elemento        
+        this.nextNode = prox; // aponta para o próximo elemento
+    }
+
+    // construtor para clonar valor
+    public Caixa( Caixa caixa ) {
+        this.data = caixa.data;
+        this.nextNode = caixa.nextNode;
+        this.antNode = caixa.antNode;
+    }
+} // fim da classe ListNode
+//-----------------------------------------------------------------------------------------------------------------------------
+// definição da classe
+
+public class ListaEncadeadaDupla {
+
+    private Caixa firstNode;
+    private Caixa lastNode;
+    private String nome; // nome da lista
+
+    // contador indica a quantidade de elementos da lista
+    private int c = 0;
+
+    // constroi uma lista tipo default
+    public ListaEncadeadaDupla() {
+        firstNode = lastNode = null;
+    }
+
+    // constroi uma lista com o objeto captado
+    public ListaEncadeadaDupla( String nome ) {
+        this.nome = nome;
+        firstNode = lastNode = null;
+    }
+
+    /*
+     * Incere um objeto no inicio de List. Se list estiver vazia, firstNode e
+     * lastNode farão referência ao mesmo elemento. Caso contrário, firstNode
+     * faz referência ao novo elemento.
+     */
+    public synchronized void insertAtFront( Object insertItem ) {
+        if (isEmpty()) {
+            firstNode = lastNode = new Caixa(insertItem);
+            c = 1; // indica que foi incerido um elemento na lista
+        } else {
+            firstNode = new Caixa( null, insertItem, firstNode);
+            c++; // conta quantos elementos são inceridos na lista
+        }
+
+    }
+
+    /*
+     * Incere Objeto no fim da List. Se estiver vazia, firstNode e lastNode
+     * farão referência ao mesmo elemento. Caso contrário, o nextNode de
+     * lastNode faz referência ao novo elemento.
+     */
+
+    public synchronized void insertAtBack( String insertItem ) {
+        Caixa aux;
+        if (isEmpty()) {
+            firstNode = lastNode = new Caixa( insertItem );
+            c = 1; // indica que foi incerido um elemento na lista
+        } else {
+            aux = new Caixa( null, insertItem, lastNode );
+            lastNode = lastNode.nextNode = aux;
+            c++; // conta quantos elementos são inceridos na lista
+        }
+    }
+
+    /*
+     * Método que incere em um local especifico da lista este método irá inserir
+     * por convenção neste código depois do elemento repassado... atenção este
+     * método só pode ser usado quando já houver dados cadastrados na lista
+     * duplamente encadeada as suas veirficações devem ser feita antes da
+     * chamada desse método
+     */
+    public synchronized void insertAt( Object insertItem, int loc ) {
+        // se a lista não estiver vazia
+        if (!isEmpty()) {
+            // esta linha armazena uma referencia do local
+            // chamando o método que retorna uma referência
+            // da Caixa anterior aonde será incluido o novo elemento
+            Caixa w = getCaixa(loc);
+            // se o local for o primeiro elemento
+            // irá incerir depois do primeiro elemento
+            if (w == firstNode) {
+                // outra referência que recebe o elemento que ficará
+                // depois do novo elemento inserido na lista
+                Caixa wp = w.nextNode;
+                // armazenando o objeto na caixa
+                // definindo novo.antNode = w;
+                // e novo.nextNode = wp;
+                Caixa novo = new Caixa( w, insertItem, wp );
+                // ligando o novo a lista
+                w.nextNode = novo;
+                wp.antNode = novo;
+                // se o local for o ultimo elemento
+            } else if (w == lastNode) {
+                // criando caixa, armazenando valor
+                // determinado ant e prox
+                // este será o ultimo elemento da lista agora
+                Caixa novo = new Caixa( null, insertItem, w );
+                // ligando a lista
+                w.nextNode = novo;
+                // alterando referência do indicador do ultimo
+                // elemento da lista
+                lastNode = novo;
+                // se o local for no meio da lista dupla
+            } else {
+                // outra referência que recebe o elemento que ficará
+                // depois do novo elemento inserido na lista
+                Caixa wp = w.nextNode;
+                // armazenando o objeto na caixa
+                // definindo novo.antNode = w;
+                // e novo.nextNode = wp;
+                Caixa novo = new Caixa( w, insertItem, wp );
+                // ligando o novo a lista
+                w.nextNode = novo;
+                wp.antNode = novo;
+            }
+            c++;
+        }
+    }
+
+    // remove o primeiro elemento de List
+    public synchronized Object removeFromFront() throws EmptyListException {
+        // variável que irá armazenar os dados do
+        // elemento removido
+        Object removeItem = null;
+        // dispara a exceção se a List estiver vazia
+        if (isEmpty()) {
+            throw new EmptyListException();
+        } else {
+            // auxiliar aponta para o elemento a ser removido
+            Caixa removed = firstNode;
+            // recupera os dados que estão sendo removidos
+            removeItem = firstNode.data;
+            c--; // diminui o número no contador
+            // reinicializa as referências firstNode e LastNode
+            if (firstNode == lastNode) {
+                firstNode = lastNode = null;
+                c = 0; // zera o contados | nenhum elemento na lista
+            } else {
+                firstNode = firstNode.nextNode; // pula para o próximo elemento
+                // da lista
+                firstNode.antNode = null; // corta o vinculo com o elemento
+                // excluido
+            }
+            // aniquila elemento removido
+            removed = null;
+            // chama o coletor de lixo
+            // este procedimento é equiparavel ao comando
+            // free( removed );
+            System.gc();
+        }
+        // devolve os dados do elemento removido
+        return removeItem;
+    }
+
+    // remove o ultimo elemento de List
+    public synchronized Object removeFromBack() throws EmptyListException {
+        Object removeItem = null;
+        // dispara a exceção se a List estiver vazia
+        if (isEmpty()) {
+            throw new EmptyListException();
+        } else {
+            // auxiliar aponta para o elemento a ser removido
+            Caixa removed = lastNode;
+            // recupera os dados que estão sendo removidos
+            removeItem = lastNode.data;
+            c--; // diminui o número no contador
+            // reinicializa as referências firstNode e LastNode
+            if (firstNode == lastNode) {
+                firstNode = lastNode = null;
+                c = 0; // zera o contados | nenhum elemento na lista
+            } else {
+                // localiza o ultimo elemento
+                Caixa current = lastNode.antNode;
+                // current é o novo lastNode
+                lastNode = current;
+                lastNode.nextNode = null;
+            }
+            // aniquila elemento removido
+            removed = null;
+            // chama o coletor de lixo
+            // este procedimento é equiparavel ao comando
+            // free( removed );
+            System.gc();
+        }
+        return removeItem;
+    }
+
+    /*
+     * Remove o elemento especícido, as verificações devem ser feitas antes da
+     * chamada deste método, na área de interface com o usuário em uma GUI
+     * 
+     * este método recebe o número da posição do elemeto a ser removido
+     * iniciando a contagem a partir de firstNode...
+     */
+    public synchronized Object removeAt(int loc) throws EmptyListException {
+        // variavel que armazena o valor removido
+        Object removeItem = null;
+        // se for diferende de lista vazia ele faz
+        if (!isEmpty()) {
+            // referência para o objeto a ser removido
+            Caixa w = getCaixa(loc);
+            // se o elemento a ser removido for o primeiro
+            if (w == firstNode) {
+                // chama o método que trata da remoção do
+                // primeiro elemeto
+                removeItem = removeFromFront();
+                // se o elemento a ser removido for o ultimo
+            } else if (w == lastNode) {
+                // chama o método que trata da remoção do ultimo
+                // elemento
+                removeItem = removeFromBack();
+                // se o elemeto a ser removido estiver no meio da lista
+            } else {
+                // variáveis auxiliares
+                Caixa ant, prox, removed;
+                // ant aponta para o anterior do que será removido
+                ant = w.antNode;
+                // prox aponta para o posterior do que será removido
+                prox = w.nextNode;
+                // removed recebe o elemento a ser eliminado
+                removed = w;
+                // armazena o valor removido
+                removeItem = w.data;
+                // desvinculando elemento da lista
+                ant.nextNode = prox;
+                prox.antNode = ant;
+                // aniquila elemento removido
+                removed = null;
+                // chama o coletor de lixo
+                // este procedimento é equiparavel ao comando
+                // free( removed );
+                System.gc();
+                c--; // diminui o número no contador
+            }
+        }
+        // retorna os dados do elemento removido
+        return removeItem;
+    }
+
+    // remove um elemento da lista a partir de uma referencia
+    // não retorna nenhuma informação apenas executa, as verificações
+    // são feitas antes da chamada deste método
+    public synchronized void removeRef(Caixa loc) {
+        Caixa ant, next; // auxiliares para ligar a lista depois de removido o
+        // elemento
+        // caso a referencia passada seja do primeiro da lista
+        if (loc == firstNode) {
+            firstNode = firstNode.nextNode; // indicador do primeiro elemento
+            // aponta para o próximo
+            firstNode.antNode = null; // corta o vínculo com o elemento que será
+            // removido
+            // caso a referência seja do ultimo da lista
+        } else if (loc == lastNode) {
+            lastNode = lastNode.antNode; // indicador do ultimo elemento aponta
+            // para o penultimo
+            lastNode.nextNode = null; // corta o vínculo com o elemento que será
+            // removido
+            // para um elemento no meio da lista
+        } else {
+            ant = loc.antNode; // aponta para o elemento anterior ao que será
+            // removido
+            next = loc.nextNode; // aponta para o elemento posterior do que será
+            // removido
+            // realizando remoção, manipulando as referências
+            ant.nextNode = next;
+            next.antNode = ant;
+        }
+        // anulando o elemento removido
+        loc = null;
+        // chamando coletor de lixo, está operação é equivalente
+        // ao free( loc ); :-)
+        System.gc();
+        c--; // diminuindo o contator que indica a quantidade de elementos da
+        // lista
+    }
+
+    // devolve true se a List estiver vazia
+    public synchronized boolean isEmpty() {
+        return firstNode == null;
+    }
+
+    // retorna a quantidade de elementos da lista
+    public int getQuantLista() {
+        return c;
+    }
+
+    // retorna o nome da lista
+    public String getNome() {
+        return nome;
+    }
+
+    // recebe o novo nome da lista
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    // retorna um elemento da lista
+    public Object getElementoLista(int element) throws EmptyListException {
+        Caixa current = firstNode;
+        if (isEmpty()) {
+            throw new EmptyListException();
+        } else {
+            if (element == 1) {
+                current = firstNode;
+            } else if (element == c) {
+                current = lastNode;
+            } else if ((element > 1) && (element < c)) {
+                for (int i = 1; i <= element; i++) {
+                    current = current.nextNode;
+                }
+            } else {
+                JOptionPane.showMessageDialog(null,
+                        "Não existe este elemento...", "!!! ERRO !!!",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        // retorna o elemento da lista|objeto
+        return current.data;
+    }
+
+    // retorna um array de objetos referenciados pela classe
+    public Object[] toArray() throws EmptyListException {
+        Object array[] = new Object[ this.getQuantLista() ];
+        Caixa current = firstNode;
+        if (isEmpty()) {
+            throw new EmptyListException();
+        } else {
+            for( int element = 0; element < this.getQuantLista(); element++ ) {
+                array[ element ] = current.data;
+                current = current.nextNode;                
+            }
+        }
+        // retorna o elemento da lista|objeto
+        return array;
+    }
+    
+    // método que localiza e retorna uma referencia para uma caixa( node )
+    // da lista duplamente encadeada
+    public Caixa getCaixa(int element) throws EmptyListException {
+        Caixa current = firstNode;
+        if (isEmpty()) {
+            throw new EmptyListException();
+        } else {
+            for (int i = 1; i <= element; i++) {
+                current = current.nextNode;
+            }
+        }
+        // retorna o elemento da lista|objeto
+        return current;
+    }
+
+    // métodos acessores e modificadores para os indicadores de
+    // inicio e fim da lista
+    public void setFirstNode(Caixa f) {
+        this.firstNode = f;
+    }
+
+    public void setLastNode(Caixa l) {
+        this.lastNode = l;
+    }
+
+    public Caixa getFirstNode() {
+        return firstNode;
+    }
+
+    public Caixa getLastNode() {
+        return lastNode;
+    }
+
+    // para uso externo para almentar ou diminuir o número de elemento na lista
+    // antes de usar fazer as verificações devidas
+    // diminuir
+    public void setDim() {
+        this.c--;
+    }
+
+    // almentar
+    public void setAum() {
+        this.c++;
+    }
+    
+}
+//-----------------------------------------------------------------------------------------------------------------------------
+// definição da classe EmptyListException
+
+class EmptyListException extends RuntimeException {
+    public EmptyListException() {
+        JOptionPane.showMessageDialog(null, "Lista vazia !!!", "!!!Atenção!!!",
+                JOptionPane.ERROR_MESSAGE);
+    }
+} // fim da classe

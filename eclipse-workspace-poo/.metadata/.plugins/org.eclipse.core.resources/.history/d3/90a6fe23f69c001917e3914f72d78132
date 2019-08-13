@@ -1,0 +1,16 @@
+package pack;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Eleve {
+	
+	private int idE;
+	private String nom;
+	private String prenom;
+	private List<Inscription> mesInscriptions = new ArrayList<Inscription>();
+
+	
+	
+    
+}

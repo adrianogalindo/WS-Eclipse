@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 6 elements to &apos;PizzaDesignPattern/src/pizza6&apos;&#x0A;- Original project: &apos;PizzaDesignPattern&apos;&#x0A;- Destination element: &apos;PizzaDesignPattern/src/pizza6&apos;&#x0A;- Original elements:&#x0A;     pizza5.Main.java&#x0A;     pizza5.PizzaMenu.java&#x0A;     pizza5.PizzaSize.java&#x0A;     pizza5.TypePizza.java&#x0A;     pizza5.Pizza.java&#x0A;     pizza5.PizzaPromotion.java" description="Copy compilation units" destination="/src&lt;pizza6" element1="/src&lt;pizza5{Main.java" element2="/src&lt;pizza5{PizzaMenu.java" element3="/src&lt;pizza5{PizzaSize.java" element4="/src&lt;pizza5{TypePizza.java" element5="/src&lt;pizza5{Pizza.java" element6="/src&lt;pizza5{PizzaPromotion.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1554215675816" units="6" version="1.0"/>
+</session>

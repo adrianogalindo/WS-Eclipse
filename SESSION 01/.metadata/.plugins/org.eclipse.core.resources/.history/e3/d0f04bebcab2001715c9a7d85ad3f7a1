@@ -1,0 +1,24 @@
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		sc.useLocale(Locale.ENGLISH);
+		Locale.setDefault(new Locale("en", "US"));
+		
+		double pi, R, volume;
+		
+		pi = 3.14159;
+		R = sc.nextDouble();
+		
+		volume = (4.0 * pi * Math.pow(R, 3)) / 3.0;
+		
+		System.out.printf("VOLUME = %.3f%n", volume);
+		
+		sc.close();
+
+	}
+
+}

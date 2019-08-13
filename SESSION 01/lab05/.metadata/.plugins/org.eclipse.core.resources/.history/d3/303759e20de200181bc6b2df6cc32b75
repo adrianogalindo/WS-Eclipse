@@ -1,0 +1,64 @@
+package ca.qc.grasset._420_pa4_ag.lab05.password;
+
+import org.junit.Assert;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import ca.qc.grasset._420_pa4_ag.lab05.commons.AbstractFunctionalTest;
+import testlink.api.java.client.TestLinkAPIConst;
+import testlink.api.java.client.TestLinkAPIException;
+
+public class ForgotPasswordTest
+    extends AbstractFunctionalTest {
+
+    public ForgotPasswordTest() {
+
+        super();
+    }
+
+    @Test
+    public void test()
+        throws TestLinkAPIException {
+
+        final String testProject = "The Internet - Heroku App";
+        final String testPlan = "420-PA4-AG-LAB06.5-1820-001";
+        final String testCase = "Mot de passe oublié";
+        final String build = "420-PA4-AG-LAB06.6-2900.0_0_1_ALPHA";
+
+        String result = TestLinkAPIConst.TEST_FAILED;
+        String notes = "Execution failed";
+
+        try {
+        getDriver().get("https://the-internet.herokuapp.com/");
+        getDriver().findElement(By.linkText("Forgot Password"))
+            .click();
+        getDriver().findElement(By.id("email"))
+            .click();
+        getDriver().findElement(By.id("email"))
+            .clear();
+        getDriver().findElement(By.id("email"))
+            .sendKeys("adrianogalindo@gmail.com");
+        getDriver().findElement(By.id("form_submit"))
+            .click();
+
+        validate();
+
+        result = TestLinkAPIConst.TEST_PASSED;
+        notes = "Executed successfully";
+
+    } finally {
+        reportResult(testProject, testPlan, testCase, build, notes, result);
+    }
+
+    @Override
+    protected final void validate() {
+
+        WebElement element = getDriver().findElement(By.xpath("//*[@id=\"content\"]"));
+        String actualMessage = element.getText();
+        Assert.assertTrue(actualMessage.contains("Your e-mail's been sent!"));
+
+    }
+
+}
+}

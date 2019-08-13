@@ -1,0 +1,18 @@
+1551039181707	Rename package 'br.ce.wcaquino.servicos'
+1551039192895	Copy compilation unit
+1551039217525	Rename type 'LocacaoService'
+1551039355639	Move compilation unit
+1551039397879	Move compilation unit
+1551039510353	Rename package 'br.ce.wcaquino.servicos.test'
+1551105310149	Copy compilation unit
+1551113307543	Delete element
+1551113379064	Move compilation units
+1551115253720	Delete element
+1551120127490	Delete element
+1551122016358	Rename package 'br.cewcaquino'
+1551124144860	Copy compilation unit
+1551306433692	Extract method 'calcularValorLocacao'
+1551311708992	Copy compilation unit
+1551311833571	Delete element
+1551311852637	Copy compilation unit
+1551312226954	Extract method 'obterData'

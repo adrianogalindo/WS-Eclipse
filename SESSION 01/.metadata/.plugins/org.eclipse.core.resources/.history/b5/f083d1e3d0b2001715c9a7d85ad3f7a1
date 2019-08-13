@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		int tempo, hora, minuto, segundo, resto;
+		
+		tempo = sc.nextInt();
+		
+		hora = tempo / 3600;
+		// utiliza o operador MOD para o resto da divisão
+		resto = tempo % 3600;
+		
+		minuto = resto / 60;
+		
+		segundo = minuto % 60;
+		
+		System.out.println(hora + ":" + minuto + ":" + segundo);
+		
+		sc.close();
+
+	}
+
+}

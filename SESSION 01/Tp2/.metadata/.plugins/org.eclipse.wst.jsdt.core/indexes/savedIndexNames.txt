@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+/Users/galindo/Dropbox/Eclipse/Tp2/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+1216948606.index
+3355249834.index
+3640164693.index
+496610221.index
+973585155.index
+193812807.index

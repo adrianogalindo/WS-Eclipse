@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="/Users/galindo/Downloads/TP1"/>
+		<item value="/Users/adrianogalindo/Downloads/mysql-connector-java-5.1.39"/>
+	</list>
+	<section name="CleanDialogSettings">
+		<item value="484" key="DIALOG_WIDTH"/>
+		<item value="false" key="TOGGLE_SELECTED"/>
+		<item value="372" key="DIALOG_HEIGHT"/>
+		<item value="718" key="DIALOG_X_ORIGIN"/>
+		<item value="271" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="ExternalProjectImportWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="true" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="/Users/adrianogalindo/Downloads/SimpleEditor"/>
+			<item value="/Users/adrianogalindo/Downloads/SimpleEditor 3"/>
+			<item value="/Users/adrianogalindo/Downloads/SimpleEditor 2"/>
+			<item value="/Users/adrianogalindo/Downloads/Files 2"/>
+			<item value="/Users/adrianogalindo/Downloads/Files1"/>
+			<item value="/Users/adrianogalindo/Downloads/TPBD1 (enoncÇ)"/>
+			<item value="/Users/adrianogalindo/Downloads/Pizza (fr)"/>
+			<item value="/Users/adrianogalindo/Downloads/InterfaceSegregation"/>
+			<item value="/Users/adrianogalindo/Downloads/DB 1v2 (MySql)"/>
+			<item value="/Users/adrianogalindo/Downloads/Pizza"/>
+			<item value="/Users/galindo/Downloads/ProgJava 1/ExampleSingleton"/>
+			<item value="/Users/galindo/Downloads/ProgJava 1/CounterExampleDemeter"/>
+			<item value="/Users/galindo/Downloads/ProgJava 1/StaticClassExemple"/>
+			<item value="/Users/galindo/Downloads/ProgJava 1/Singleton"/>
+			<item value="/Users/galindo/Downloads/ProgJava 1/MyClass"/>
+			<item value="/Users/galindo/Downloads/ProgJava 1/M2x2"/>
+			<item value="/Users/galindo/Downloads/ProgJava 1/ExempleLiskov3"/>
+			<item value="/Users/galindo/Downloads/ProgJava 1/ExampleDemeter"/>
+			<item value="/Users/galindo/Downloads/ExempleBuilder"/>
+			<item value="/Users/galindo/Downloads/ProgJava 2"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
+	<section name="NewWizardAction">
+		<item value="org.eclipse.jdt.ui.wizards.JavaProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+		</list>
+	</section>
+</section>

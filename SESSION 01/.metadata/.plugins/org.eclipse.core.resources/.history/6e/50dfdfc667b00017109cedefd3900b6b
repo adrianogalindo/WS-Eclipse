@@ -1,0 +1,39 @@
+import java.util.Locale;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		double x = 1.234567890;
+		int y = 32;
+		String nome = "Adriano";
+		int idade = 31;
+		double renda = 4000.0;
+						
+		
+		System.out.println("Acelera esse vídeo!");
+		System.out.println("Porrraaaaaaaaaa");
+		
+		System.out.println(x);
+		System.out.printf("%.2f%n", x);
+		Locale.setDefault(new Locale("en", "US"));
+		System.out.printf("%.2f%n", x);
+		System.out.printf("%.5f%n", x);
+		
+		System.out.println(y);
+		
+		System.out.println("RESULTADO = " + x + " METROS");
+		
+		System.out.printf("RESULTADO = %.3f METROS%n", x);
+		
+		//%f = ponto flutuante
+		//%d = inteiro
+		//%s = texto
+		//%n = quebra de linha
+		
+		System.out.printf("%s tem %d anos e ganha R$ %.2f reais%n", nome, idade, renda);
+
+		
+	}
+
+}

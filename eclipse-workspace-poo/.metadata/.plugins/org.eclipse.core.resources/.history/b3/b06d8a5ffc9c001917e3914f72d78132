@@ -1,0 +1,21 @@
+package pack;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		//Fazer um programa para fazer a inscricao de um aluno em um ou mais cursos
+		//Fazer um programa para fazer a remocao de um aluno em um ou mais cursos
+		
+		List<Eleve> catalogoEleves = new ArrayList<Eleve>();
+		List<Cours> catalogoCours = new ArrayList<Cours>();
+		
+		
+
+	}
+
+}

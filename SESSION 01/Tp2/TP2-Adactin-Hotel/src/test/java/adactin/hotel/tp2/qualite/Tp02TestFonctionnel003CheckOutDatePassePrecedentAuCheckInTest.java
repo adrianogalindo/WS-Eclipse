@@ -1,0 +1,72 @@
+package adactin.hotel.tp2.qualite;
+
+import org.junit.Assert;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
+import ca.qc.grasset._420_pa4_ag.lab05.commons.AbstractFunctionalTest;
+
+public class Tp02TestFonctionnel003CheckOutDatePassePrecedentAuCheckInTest
+    extends AbstractFunctionalTest {
+    public Tp02TestFonctionnel003CheckOutDatePassePrecedentAuCheckInTest() {
+
+        super();
+    }
+
+    @Test
+    public void test() {
+
+        getDriver().get("http://adactin.com/HotelApp/index.php");
+        getDriver().findElement(By.id("username"))
+            .click();
+        getDriver().findElement(By.id("username"))
+            .clear();
+        getDriver().findElement(By.id("username"))
+            .sendKeys("adrianogalindo");
+        getDriver().findElement(By.id("password"))
+            .clear();
+        getDriver().findElement(By.id("password"))
+            .sendKeys("institutgrasset");
+        getDriver().findElement(By.id("password"))
+            .sendKeys(Keys.ENTER);
+        getDriver().findElement(By.id("datepick_in"))
+            .click();
+        getDriver().findElement(By.id("datepick_in"))
+            .clear();
+        getDriver().findElement(By.id("datepick_in"))
+            .sendKeys("01/11/2018");
+        getDriver().findElement(By.id("datepick_out"))
+            .click();
+        getDriver().findElement(By.id("datepick_out"))
+            .click();
+        getDriver().findElement(By.id("datepick_out"))
+            .clear();
+        getDriver().findElement(By.id("datepick_out"))
+            .sendKeys("10/11/2018");
+        new Select(getDriver().findElement(By.id("location"))).selectByVisibleText("Sydney");
+        getDriver().findElement(
+            By.xpath(
+                "(.//*[normalize-space(text()) and normalize-space(.)='*'])[1]/following::option[2]"))
+            .click();
+        getDriver().findElement(By.id("Submit"))
+            .click();
+        validate();
+    }
+
+    @Override
+    protected final void validate() {
+
+        WebElement element = getDriver().findElement(By.xpath("//*[@id=\"arr_date_1\"]"));
+        String actualValue = element.getAttribute("value");
+        Assert.assertTrue("01/11/2018".equals(actualValue));
+
+        element = getDriver().findElement(By.xpath("//*[@id=\"dep_date_1\"]"));
+        actualValue = element.getAttribute("value");
+        Assert.assertTrue("10/11/2018".equals(actualValue));
+
+    }
+
+}

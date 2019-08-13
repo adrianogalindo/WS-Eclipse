@@ -1,0 +1,25 @@
+package exercicios;
+
+import java.util.Scanner;
+import java.util.Locale;
+
+public class exercicios01 {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		sc.useLocale(Locale.ENGLISH);
+		Locale.setDefault(new Locale("en", "US"));
+		
+		double largura = sc.nextDouble();
+		double comprimento = sc.nextDouble();
+		double precodom2 = sc.nextDouble();
+		double AREA, PRECO;
+		
+		AREA = largura * comprimento;
+		PRECO = AREA * precodom2;
+		
+		sc.close();
+			}
+
+}

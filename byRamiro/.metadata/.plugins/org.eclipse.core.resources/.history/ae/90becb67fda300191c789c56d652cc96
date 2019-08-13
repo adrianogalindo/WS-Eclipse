@@ -1,0 +1,16 @@
+package entities;
+
+
+public class Noeud<T> {
+
+	T data;
+	protected Noeud<T> suivant;
+	protected Noeud<T> anterieur;
+
+	protected Noeud(T v) {
+
+		this.data = v;
+		this.suivant = this.anterieur = null;
+	}
+
+}

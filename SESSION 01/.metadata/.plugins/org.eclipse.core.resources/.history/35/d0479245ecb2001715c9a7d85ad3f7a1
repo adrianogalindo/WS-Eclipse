@@ -1,0 +1,62 @@
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		sc.useLocale(Locale.ENGLISH);
+		Locale.setDefault(new Locale("en", "US"));
+
+		int notas, moedas, resto, quociente;
+		double dinheiro;
+
+		dinheiro = sc.nextDouble();
+
+		// Vamos multiplicar N por 100 e forçar a conversão para int.
+		// Desse modo, por exemplo, 576.73 vai se tornar 57673
+
+		resto = (int) (dinheiro * 100);
+
+		notas = 100;
+		quociente = resto / (notas * 100);
+		System.out.println("NOTAS:");
+		System.out.println(quociente + " nota(s) de R$ " + notas + ".00");
+		resto =  resto % (notas * 100);
+
+		notas = 50;
+		quociente = resto / (notas * 100);
+		System.out.println(quociente + " nota(s) de R$ " + notas + ".00");
+		resto = resto % (notas * 100);
+
+		notas = 20;
+		quociente = resto / (notas * 100);
+		System.out.println(quociente + " nota(s) de R$ " + notas + ".00");
+		resto = resto % (notas * 100);
+
+		notas = 10;
+		quociente = resto / (notas * 100);
+		System.out.println(quociente + " nota(s) de R$ " + notas + ".00");
+		resto = resto % (notas * 100);
+
+		notas = 5;
+		quociente = resto / (notas * 100);
+		System.out.println(quociente + " nota(s) de R$ " + notas + ".00");
+		resto = resto % (notas * 100);
+
+		notas = 2;
+		quociente = resto / (notas * 100);
+		System.out.println(quociente + " nota(s) de R$ " + notas + ".00");
+		resto = resto % (notas * 100);
+
+		System.out.println(resto);
+
+		moedas = 1;
+		quociente = resto / moedas;
+		System.out.println(quociente + " moeda(s) de R$ " + notas + ".00");
+
+		sc.close();
+
+	}
+
+}

@@ -1,0 +1,19 @@
+import java.util.Locale;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		double x = 1.234567890;
+		
+		System.out.println("Acelera esse vídeo!");
+		System.out.println("Porrraaaaaaaaaa");
+		
+		System.out.println(x);
+		System.out.printf("%.2f%n", x);
+		Locale.setDefault(new Locale("en", "US"));
+		System.out.printf("%.2f%n", x);
+	}
+
+}

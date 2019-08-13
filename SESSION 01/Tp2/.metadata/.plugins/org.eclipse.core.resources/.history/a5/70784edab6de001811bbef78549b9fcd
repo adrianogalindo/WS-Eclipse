@@ -1,0 +1,64 @@
+package adactin.hotel.tp2.qualite;
+
+import org.junit.Assert;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
+import ca.qc.grasset._420_pa4_ag.lab05.commons.AbstractFunctionalTest;
+
+public class Tp02TestFonctionnel004CheckInCheckOutAfficheeTest
+    extends AbstractFunctionalTest {
+    public Tp02TestFonctionnel004CheckInCheckOutAfficheeTest() {
+
+        super();
+    }
+
+    @Test
+    public void test() {
+
+        getDriver().get("http://adactin.com/HotelApp/index.php");
+        getDriver().findElement(By.id("username"))
+            .click();
+        getDriver().findElement(By.id("username"))
+            .clear();
+        getDriver().findElement(By.id("username"))
+            .sendKeys("adrianogalindo");
+        getDriver().findElement(By.id("password"))
+            .clear();
+        getDriver().findElement(By.id("password"))
+            .sendKeys("institutgrasset");
+        getDriver().findElement(By.id("password"))
+            .sendKeys(Keys.ENTER);
+        getDriver().findElement(
+            By.xpath(
+                "(.//*[normalize-space(text()) and normalize-space(.)='*'])[1]/following::option[1]"))
+            .click();
+        new Select(getDriver().findElement(By.id("location"))).selectByVisibleText("Melbourne");
+        getDriver().findElement(
+            By.xpath(
+                "(.//*[normalize-space(text()) and normalize-space(.)='*'])[1]/following::option[3]"))
+            .click();
+        getDriver().findElement(By.id("datepick_out"))
+            .click();
+        getDriver().findElement(By.id("datepick_out"))
+            .clear();
+        getDriver().findElement(By.id("datepick_out"))
+            .sendKeys("05/11/2018");
+        getDriver().findElement(By.id("Submit"))
+            .click();
+        validate();
+    }
+
+    @Override
+    protected final void validate() {
+
+        WebElement element = getDriver().findElement(By.xpath("//*[@id=\"arr_date_1\"]"));
+        String checkIn = element.getText();
+        Assert.assertTrue("02/11/2018".equals(checkIn));
+
+    }
+
+}

@@ -1,0 +1,33 @@
+package exercicios;
+
+import java.util.Scanner;
+import java.util.Locale;
+
+public class exercicios01 {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		sc.useLocale(Locale.ENGLISH);
+		Locale.setDefault(new Locale("en", "US"));
+		
+		System.out.print("Digite a largura:");
+		double largura = sc.nextDouble();
+		System.out.print("Digite o comprimento:");
+		double comprimento = sc.nextDouble();
+		System.out.print("Digite o preço do metro quadrado:");
+		double precodom2 = sc.nextDouble();
+
+		double AREA, PRECO;
+		
+		AREA = largura * comprimento;
+		PRECO = AREA * precodom2;
+		
+		System.out.printf("ÁREA = %.2f metros quadrados%n", AREA);
+		System.out.printf("PREÇO = %.2f reais%n", PRECO);
+
+		
+		sc.close();
+			}
+
+}

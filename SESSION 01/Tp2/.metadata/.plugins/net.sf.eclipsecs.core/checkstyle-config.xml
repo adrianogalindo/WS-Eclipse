@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<checkstyle-configurations file-format-version="5.0.0" default-check-configuration="7786174 Canada Inc">
+  <check-configuration name="7786174 Canada Inc" location="/Users/galindo/Dropbox/Eclipse/Tp2/TP2-Adactin-Hotel/tools/7786174.canada.checkstyle.configuration.xml" type="external" description="">
+    <additional-data name="protect-config-file" value="false"/>
+  </check-configuration>
+</checkstyle-configurations>

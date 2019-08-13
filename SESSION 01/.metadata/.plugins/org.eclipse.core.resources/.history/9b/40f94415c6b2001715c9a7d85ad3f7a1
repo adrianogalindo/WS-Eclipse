@@ -1,0 +1,36 @@
+package exercicioresolvido;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		sc.useLocale(Locale.ENGLISH);
+		Locale.setDefault(new Locale("en", "US"));
+		
+		double base, altura, area, perimetro, diagonal;
+		
+		System.out.print("Digite a base: ");
+		base = sc.nextDouble();
+		System.out.print("Digite a altura: ");
+		altura = sc.nextDouble();
+		area = base * altura;
+		perimetro = 2 * base + 2 * altura;
+		diagonal = Math.sqrt(Math.pow(base, 2) + Math.pow(altura, 2));
+		
+		System.out.printf("AREA = %.4f metros quadrados%n", area);
+		System.out.printf("PERÍMETRO = %.4f metros%n", perimetro);
+		System.out.printf("DIAGONAL = %.4f metros%n", diagonal);
+				
+		
+				
+		
+		sc.close();
+		
+
+	}
+
+}

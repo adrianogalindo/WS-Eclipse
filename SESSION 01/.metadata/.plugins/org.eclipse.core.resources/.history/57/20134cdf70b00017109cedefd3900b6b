@@ -1,0 +1,24 @@
+package entradadedados;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Entradadedados {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		
+		String x;
+		// next serve para ler texto
+		int y;
+		double z;
+		
+		y = sc.nextInt();
+		z = sc.nextDouble();
+		sc.useLocale(Locale.ENGLISH);
+	
+		sc.close();
+	}
+
+}

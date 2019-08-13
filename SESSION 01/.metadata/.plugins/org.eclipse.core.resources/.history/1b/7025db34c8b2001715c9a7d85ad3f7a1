@@ -1,0 +1,30 @@
+package exercicioresolvido2;
+
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Exercicioresolvido2 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		sc.useLocale(Locale.ENGLISH);
+		Locale.setDefault(new Locale("en", "US"));
+
+		String nome1, nome2;
+		int idade1, idade2;
+		double media;
+		
+		nome1 = sc.next();
+		idade1 = sc.nextInt();
+		nome2 = sc.next();
+		idade2 = sc.nextInt();
+		media = (double) (idade1 + idade2) / 2;
+		
+		System.out.printf("A idade média de %s e %s é de %.1f anos%n", nome1, nome2, media);
+		// pode ser feito também dessa forma System.out.printf("A idade média de " + nome1 + " e " + nome2 + " é de %.1f anos%n", media);
+	
+		
+		sc.close();
+	}
+
+}

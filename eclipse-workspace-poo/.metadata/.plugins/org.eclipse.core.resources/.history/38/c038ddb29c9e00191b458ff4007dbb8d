@@ -1,0 +1,44 @@
+package pack;
+
+import java.util.Date;
+
+public class Inscription {
+
+	private Date date;
+	private Double nf = null;
+	private Cours cours;
+	private Eleve eleve;
+
+	Inscription(Date date, Cours cours, Eleve eleve) {
+		this.date = date;
+		this.cours = cours;
+		this.eleve = eleve;
+	}
+
+	public Double getNf() {
+		return nf;
+	}
+
+	public void setNf(Double nf) {
+		this.nf = nf;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public Cours getCours() {
+		return cours;
+	}
+
+	public String getTitreDuCours() {
+		return cours.getTitre();
+	}
+
+	public Eleve getEleve() {
+		return eleve;
+	}
+	
+	
+
+}

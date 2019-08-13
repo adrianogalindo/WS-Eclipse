@@ -1,0 +1,20 @@
+package fundamentos;
+
+public class VariaveisEConstantes {
+
+	public static void main(String[] args) {
+/*
+ * Utiliza-se para variáveis o seguinte padrão: raioDoCirculo (CamelCase)
+ * Utiliza-se para constantes o seguinte padrão: NUMERO_PI (tudo MAIUSCULO)
+ */
+		double raio = 4.5;
+		final double PI = 3.1416;
+		double area = PI * raio * raio;
+		
+		System.out.println("área é " + area + " m2.");
+		
+		System.out.printf("área é %f m2.%n", area);
+		System.out.printf("área é %.2f m2.%n", area);
+		
+	}
+}

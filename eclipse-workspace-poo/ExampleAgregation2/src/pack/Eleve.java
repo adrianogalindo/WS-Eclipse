@@ -1,0 +1,40 @@
+package pack;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Eleve {
+
+	private int idE;
+	private String nom;
+	private String prenom;
+	private List<Inscription> mesInscriptions = new ArrayList<Inscription>();
+
+	public Eleve(int idE, String nom, String prenom) {
+		this.idE = idE;
+		this.nom = nom;
+		this.prenom = prenom;
+		mesInscriptions = new ArrayList<Inscription>();
+	}
+
+	public int getIdE() {
+		return idE;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public String getPrenom() {
+		return prenom;
+	}
+
+	public List<Inscription> getMesInscriptions() {
+		return mesInscriptions;
+	}
+
+	public void addMesInscriptions(Inscription mesInscriptions) {
+		this.mesInscriptions.add(mesInscriptions);
+	}
+
+}

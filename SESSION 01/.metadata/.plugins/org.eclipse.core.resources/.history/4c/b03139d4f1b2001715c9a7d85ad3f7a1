@@ -1,0 +1,52 @@
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		sc.useLocale(Locale.ENGLISH);
+		Locale.setDefault(new Locale("en", "US"));
+
+		String dia;
+		int dInicio, hInicio, minInicio, segInicio, dFim, hFim, minFim, segFim;
+		int inicio, fim, duracao, resto, tempo;
+
+		dia = sc.next();
+		dInicio = sc.nextInt();
+		hInicio = sc.nextInt();
+		dia = sc.next();
+		minInicio = sc.nextInt();
+		dia = sc.next();
+		segInicio = sc.nextInt();
+		dia = sc.next();
+		dFim = sc.nextInt();
+		hFim = sc.nextInt();
+		dia = sc.next();
+		minFim = sc.nextInt();
+		dia = sc.next();
+		segFim = sc.nextInt();
+
+		inicio = (dInicio - 1) * 24 * 60 * 60 + hInicio * 60 * 60 + minInicio * 60 + segInicio;
+		fim = (dFim - 1) * 24 * 60 * 60 + hFim * 60 * 60 + minFim * 60 + segFim;
+
+		duracao = fim - inicio;
+
+		tempo = duracao / (3600 * 24);
+		System.out.println(tempo + " dia(s)");
+		resto = duracao % (3600 * 24);
+
+		tempo = resto / 3600;
+		System.out.println(tempo + " hora(s)");
+		resto = resto % 3600;
+
+		tempo = resto / 60;
+		System.out.println(tempo + " minuto(s)");
+		tempo = resto % 60;
+		System.out.println(tempo + " segundo(s)");
+
+		sc.close();
+
+	}
+
+}

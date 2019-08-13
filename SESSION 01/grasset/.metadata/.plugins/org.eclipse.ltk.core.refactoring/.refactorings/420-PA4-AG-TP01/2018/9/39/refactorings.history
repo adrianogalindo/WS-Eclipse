@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;x&apos; in &apos;ca.qc.grasset._420_pa4_ag.tp01.UtilitaireTableau.chercherDernierePositionZero(...)&apos; to &apos;tableu_&apos;&#x0A;- Original project: &apos;420-PA4-AG-TP01&apos;&#x0A;- Original element: &apos;ca.qc.grasset._420_pa4_ag.tp01.UtilitaireTableau.chercherDernierePositionZero(int[]).x&apos;&#x0A;- Renamed element: &apos;x&apos;&#x0A;- Update references to refactored element" description="Rename local variable &apos;x&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src\/main\/java&lt;ca.qc.grasset._420_pa4_ag.tp01{UtilitaireTableau.java[UtilitaireTableau~chercherDernierePositionZero~\[I@x!1107!1119!1119!1119!\[I!16!true" name="tableu_" references="true" stamp="1537907239593" version="1.0"/>
+</session>

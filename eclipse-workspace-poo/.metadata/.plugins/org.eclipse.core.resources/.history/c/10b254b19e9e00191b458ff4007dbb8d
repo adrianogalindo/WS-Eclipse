@@ -1,0 +1,47 @@
+package pack;
+
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+public class Cours {
+
+	private int idC;
+	private String titre;
+	private int unite;
+	private List<Inscription> listeInscription = new ArrayList<Inscription>();
+
+	public Cours(int idC, String titre, int unite) {
+		this.idC = idC;
+		this.titre = titre;
+		this.unite = unite;
+	}
+
+	public String getTitre() {
+		return titre;
+	}
+
+	public void setTitre(String titre) {
+		this.titre = titre;
+	}
+
+	public List<Inscription> getListInscription() {
+		return listeInscription;
+	}
+
+	public void inscrire(Eleve eleve) {
+		Inscription newInscription = new Inscription((Date.from(Instant.now()), this, eleve));
+		this.listeInscription.add(newInscription);
+		eleve.addMesInscriptions());
+	}
+
+	public int getIdC() {
+		return idC;
+	}
+
+	public int getUnite() {
+		return unite;
+	}
+
+}

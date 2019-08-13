@@ -1,0 +1,29 @@
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		sc.useLocale(Locale.ENGLISH);
+		Locale.setDefault(new Locale("en", "US"));
+		
+		int cpeca1, npeca1, cpeca2, npeca2;
+		double vpeca1, vpeca2, total;
+		
+		cpeca1 = sc.nextInt();
+ 		npeca1 = sc.nextInt();
+ 		vpeca1 = sc.nextDouble();
+ 		cpeca2 = sc.nextInt();
+ 		npeca2 = sc.nextInt();
+ 		vpeca2 = sc.nextDouble();
+ 		total = npeca1 * cpeca1 + npeca2 * vpeca2;
+ 		
+ 		System.out.printf("VALOR A PAGAR: R$ %.2%n", total);
+ 		
+ 		sc.close();
+
+	}
+
+}

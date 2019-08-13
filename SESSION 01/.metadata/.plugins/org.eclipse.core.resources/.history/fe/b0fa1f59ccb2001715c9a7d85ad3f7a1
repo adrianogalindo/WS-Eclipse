@@ -1,0 +1,32 @@
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		sc.useLocale(Locale.ENGLISH);
+		Locale.setDefault(new Locale("en", "US"));
+
+		double A, B, C, atriangulo, acirculo, atrapezio, aquadrado, aretangulo;
+
+		A = sc.nextDouble();
+		B = sc.nextDouble();
+		C = sc.nextDouble();
+
+		atriangulo = (A * C) / 2;
+		acirculo = 3.14159 * Math.pow(C, 2);
+		atrapezio = ((A + B) * C) / 2;
+		aquadrado = Math.pow(B, 2);
+		aretangulo = A * B;
+
+		System.out.printf("TRIANGULO: %F.3%n", atriangulo);
+		System.out.printf("CIRCULO: %F.3%n", acirculo);
+		System.out.printf("TRAPEZIO: %F.3%n", atrapezio);
+		System.out.printf("QUADRADO: %F.3%n", aquadrado);
+		System.out.printf("RETANGULO: %F.3%n", aretangulo);
+
+		sc.close();
+	}
+
+}

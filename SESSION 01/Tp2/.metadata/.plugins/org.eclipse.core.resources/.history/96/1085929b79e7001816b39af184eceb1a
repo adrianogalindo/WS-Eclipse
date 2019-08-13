@@ -1,0 +1,159 @@
+package adactin.hotel.tp2.qualite;
+
+import org.junit.Assert;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import ca.qc.grasset._420_pa4_ag.lab05.commons.AbstractFunctionalTest;
+
+public class Tp02TestFonctionnel011NomHotelLieuChambreJoursTest
+    extends AbstractFunctionalTest {
+    public Tp02TestFonctionnel011NomHotelLieuChambreJoursTest() {
+
+        super();
+    }
+
+    @Test
+    public void test() {
+
+        getDriver().get("http://adactin.com/HotelApp/index.php");
+        getDriver().findElement(By.id("username"))
+            .click();
+        getDriver().findElement(By.id("username"))
+            .clear();
+        getDriver().findElement(By.id("username"))
+            .sendKeys("adrianogalindo");
+        getDriver().findElement(By.id("password"))
+            .clear();
+        getDriver().findElement(By.id("password"))
+            .sendKeys("institutgrasset");
+        getDriver().findElement(By.id("password"))
+            .sendKeys(Keys.ENTER);
+        new Select(getDriver().findElement(By.id("location"))).selectByVisibleText("Sydney");
+        getDriver().findElement(
+            By.xpath(
+                "(.//*[normalize-space(text()) and normalize-space(.)='*'])[1]/following::option[2]"))
+            .click();
+        new Select(getDriver().findElement(By.id("room_type"))).selectByVisibleText("Deluxe");
+        getDriver().findElement(
+            By.xpath(
+                "(.//*[normalize-space(text()) and normalize-space(.)='*'])[2]/preceding::option[2]"))
+            .click();
+        new Select(getDriver().findElement(By.id("room_nos"))).selectByVisibleText("3 - Three");
+        getDriver().findElement(
+            By.xpath(
+                "(.//*[normalize-space(text()) and normalize-space(.)='*'])[2]/following::option[4]"))
+            .click();
+        getDriver().findElement(By.id("datepick_in"))
+            .click();
+        getDriver().findElement(By.id("datepick_in"))
+            .clear();
+        getDriver().findElement(By.id("datepick_in"))
+            .sendKeys("01/12/2018");
+        getDriver().findElement(By.id("datepick_out"))
+            .click();
+        getDriver().findElement(By.id("datepick_out"))
+            .click();
+        getDriver().findElement(By.id("datepick_out"))
+            .clear();
+        getDriver().findElement(By.id("datepick_out"))
+            .sendKeys("10/12/2018");
+        getDriver().findElement(By.id("Submit"))
+            .click();
+        getDriver().findElement(By.id("radiobutton_1"))
+            .click();
+        getDriver().findElement(By.id("continue"))
+            .click();
+        getDriver().findElement(By.id("first_name"))
+            .click();
+        getDriver().findElement(By.id("first_name"))
+            .clear();
+        getDriver().findElement(By.id("first_name"))
+            .sendKeys("a");
+        getDriver().findElement(By.id("last_name"))
+            .click();
+        getDriver().findElement(By.id("last_name"))
+            .clear();
+        getDriver().findElement(By.id("last_name"))
+            .sendKeys("a");
+        getDriver().findElement(By.id("address"))
+            .click();
+        getDriver().findElement(By.id("address"))
+            .clear();
+        getDriver().findElement(By.id("address"))
+            .sendKeys("a");
+        getDriver().findElement(By.id("cc_num"))
+            .click();
+        getDriver().findElement(By.id("cc_num"))
+            .clear();
+        getDriver().findElement(By.id("cc_num"))
+            .sendKeys("0000000000000000");
+        new Select(getDriver().findElement(By.id("cc_type")))
+            .selectByVisibleText("American Express");
+        getDriver().findElement(
+            By.xpath(
+                "(.//*[normalize-space(text()) and normalize-space(.)='*'])[5]/following::option[2]"))
+            .click();
+        new Select(getDriver().findElement(By.id("cc_exp_month"))).selectByVisibleText("December");
+        getDriver().findElement(
+            By.xpath(
+                "(.//*[normalize-space(text()) and normalize-space(.)='*'])[6]/following::option[13]"))
+            .click();
+        new Select(getDriver().findElement(By.id("cc_exp_year"))).selectByVisibleText("2022");
+        getDriver().findElement(
+            By.xpath(
+                "(.//*[normalize-space(text()) and normalize-space(.)='*'])[6]/following::option[26]"))
+            .click();
+        getDriver().findElement(By.id("cc_cvv"))
+            .click();
+        getDriver().findElement(By.id("cc_cvv"))
+            .clear();
+        getDriver().findElement(By.id("cc_cvv"))
+            .sendKeys("000");
+        getDriver().findElement(By.id("book_now"))
+            .click();
+
+        // final long delay = 20000;
+        // Thread.sleep(delay);
+
+        validate();
+    }
+
+    @Override
+    protected final void validate() {
+
+        final int timeOut = 10;
+
+        WebDriverWait wait = new WebDriverWait(getDriver(), timeOut);
+        WebElement element =
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("hotel_name")));
+        String actualValue = element.getAttribute("value");
+        Assert.assertTrue("Hotel Cornice".equals(actualValue));
+
+        element = getDriver().findElement(By.xpath("//*[@id=\"location\"]"));
+        actualValue = element.getAttribute("value");
+        Assert.assertTrue("Sydney".equals(actualValue));
+
+        element = getDriver().findElement(By.xpath("//*[@id=\"room_type\"]"));
+        actualValue = element.getAttribute("value");
+        Assert.assertTrue("Deluxe".equals(actualValue));
+
+        element = getDriver().findElement(By.xpath("//*[@id=\"arrival_date\"]"));
+        actualValue = element.getAttribute("value");
+        Assert.assertTrue("01/12/2018".equals(actualValue));
+
+        element = getDriver().findElement(By.xpath("//*[@id=\"departure_text\"]"));
+        actualValue = element.getAttribute("value");
+        Assert.assertTrue("10/12/2018".equals(actualValue));
+
+        element = getDriver().findElement(By.xpath("//*[@id=\"price_night\"]"));
+        actualValue = element.getAttribute("value");
+        Assert.assertTrue("AUD $ 300".equals(actualValue));
+
+    }
+
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="listIterator1" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="true" key="wholeword"/>
+		<list key="findhistory">
+			<item value="listIterator1"/>
+			<item value="MLInvalidAccessException"/>
+			<item value="MyList"/>
+			<item value="isEmp"/>
+			<item value="simple"/>
+			<item value="try"/>
+			<item value="mnt"/>
+			<item value="contentpane.add"/>
+		</list>
+		<list key="replacehistory">
+			<item value="listIterator2"/>
+			<item value="LCInvalidAccessException"/>
+			<item value="LinkedChaine"/>
+		</list>
+	</section>
+</section>

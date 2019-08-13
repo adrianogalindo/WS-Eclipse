@@ -1,0 +1,15 @@
+{
+"folders": [
+    {
+        "path": "C:\\Users\\Desktop\\Downloads\\TestesUnitarios"
+    }
+],
+  "settings": {
+    "javascript.referencesCodeLens.enabled": true,
+    "editor.suggest.filterGraceful": false,
+    "typescript.implementationsCodeLens.enabled": true,
+    "editor.quickSuggestionsDelay": 200,
+    "typescript.referencesCodeLens.enabled": true,
+    "editor.detectIndentation": false
+  }
+}

@@ -1,0 +1,56 @@
+package adactin.hotel.tp2.qualite;
+
+import org.junit.Assert;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+
+import ca.qc.grasset._420_pa4_ag.lab05.commons.AbstractFunctionalTest;
+
+public class Tp02TestFonctionnel015CommandeAnnuleeCancelOrderTest
+    extends AbstractFunctionalTest {
+    public Tp02TestFonctionnel015CommandeAnnuleeCancelOrderTest() {
+
+        super();
+    }
+
+    @Test
+    public void test() {
+
+        getDriver().get("http://adactin.com/HotelApp/index.php");
+        getDriver().findElement(By.id("username"))
+            .click();
+        getDriver().findElement(By.id("username"))
+            .clear();
+        getDriver().findElement(By.id("username"))
+            .sendKeys("adrianogalindo");
+        getDriver().findElement(By.id("password"))
+            .clear();
+        getDriver().findElement(By.id("password"))
+            .sendKeys("institutgrasset");
+        getDriver().findElement(By.id("password"))
+            .sendKeys(Keys.ENTER);
+        getDriver().findElement(By.linkText("Booked Itinerary"))
+            .click();
+        this.acceptNextAlert = true;
+        getDriver().findElement(By.id("btn_id_276646"))
+            .click();
+        assertTrue(
+            closeAlertAndGetItsText().matches(
+                "^Are you sure, you want to cancel the booking with Order no\\. 0JC77AQDS4[\\s\\S]$"));
+        getDriver().findElement(By.xpath("//html"))
+            .click();
+        validate();
+    }
+
+    @Override
+    protected final void validate() {
+
+        WebElement element = getDriver().findElement(By.xpath("//*[@id=\"order_id_276644\"]"));
+        String actualValue = element.getAttribute("value");
+        Assert.assertTrue("6331B2OO3M".equals(actualValue));
+
+    }
+
+}

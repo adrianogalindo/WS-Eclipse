@@ -1,0 +1,140 @@
+package entities;
+
+import java.util.Iterator;
+
+import exception.LCInvalidAccessException;
+
+public class LinkedChainedIterator<T> implements Iterator<T> {
+
+	Noeud<T> prochain;
+
+	Noeud<T> courant;
+
+	final LinkedChaine<T> ch;
+
+	public LinkedChainedIterator(LinkedChaine<T> a) {
+
+		this.courant = null;
+		this.ch = a;
+		this.prochain = ch.tete;
+
+	}
+
+	public void add(T v) {
+
+		if (!hasPrevious()) {
+			Noeud<T> aux = new Noeud<>(v);
+			aux.anterieur = this.courant;
+			aux.suivant = this.ch.tete;
+			this.ch.tete = aux;
+			this.prochain = this.ch.tete;
+			
+		} else if (this.courant == this.ch.fin) {
+			Noeud<T> aux = new Noeud<T>(v);
+			this.courant.suivant = aux;
+			aux.suivant  = this.prochain;
+			this.ch.fin = aux;
+			this.courant = this.ch.fin;
+ 
+		} else {
+			Noeud<T> aux = new Noeud<>(v);
+			this.courant.suivant = aux;
+			aux.suivant = this.prochain;
+			this.courant = aux;
+		}
+
+	}
+	
+	public void remove() throws LCInvalidAccessException {
+
+		if (this.courant == null) {
+			throw new LCInvalidAccessException(14);
+		} else if (this.courant == this.ch.tete) { // begin list OKKKKKK
+			this.ch.tete = this.prochain;
+			this.courant = this.ch.tete;
+			this.prochain = this.prochain.suivant;
+
+		} else if (this.courant == this.ch.fin) { // end list
+
+			this.prochain = this.courant;
+			this.courant = this.courant.anterieur;
+			this.prochain.data = null;
+
+		} else {
+
+			System.out.println("REMOVE DE QUALQUER LUIGAR DA LISTA");
+			this.courant = this.courant.anterieur; 			// other place
+
+
+
+		}
+
+	}
+
+	public void goToBegin() {
+		
+		this.ch.tete.anterieur = null;
+		this.courant = this.ch.tete.anterieur;
+		this.prochain = this.ch.tete;
+
+	}
+
+	public void goToEnd() {
+
+		this.courant = ch.fin;
+		this.prochain = this.ch.fin.suivant;
+
+
+	}
+
+	public boolean hasNext() {
+
+		return this.courant != ch.fin && this.prochain.data != null;
+
+	}
+
+	public boolean hasPrevious() {
+
+		return this.prochain != ch.tete && this.courant != null;
+
+	}
+
+	public T next() throws LCInvalidAccessException {
+
+		if (!this.hasNext()) {
+			throw new LCInvalidAccessException(11);
+		} else {
+			this.prochain.anterieur = this.courant; 
+			this.courant = this.prochain;
+			this.prochain = this.prochain.suivant;
+			return this.courant.data;
+		}
+
+	}
+
+	public T previous() throws LCInvalidAccessException {
+
+		if (!this.hasPrevious()) {
+			throw new LCInvalidAccessException(12);
+		} else {
+			this.prochain = this.courant;
+			this.courant = this.courant.anterieur;
+		}
+		return this.prochain.data;
+	}
+
+
+
+	public void set(final T v) throws LCInvalidAccessException {
+
+		if (this.prochain == this.ch.tete) {
+			this.next();
+			this.courant.data = v;
+		} else if (this.courant != null) {
+			this.courant.data = v;
+		} else {
+			throw new LCInvalidAccessException(13);
+		}
+	}
+
+}
